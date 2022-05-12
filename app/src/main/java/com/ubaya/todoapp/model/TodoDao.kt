@@ -10,6 +10,9 @@ interface TodoDao {
    @Query("Select * From todo")
    suspend fun selectAllTodo() : List<Todo>
 
+   @Query("Select * From todo where is_done = 0")
+   suspend fun selectNotDoneTodo() : List<Todo>
+
    @Query("Select * from todo where uuid = :id")
    suspend fun selectTodo(id:Int):Todo
 

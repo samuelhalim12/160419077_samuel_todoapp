@@ -27,7 +27,7 @@ class ListTodoViewModel(application: Application)
         todoLoadErrorLD.value = false
         launch {
             val db = buildDb(getApplication())
-            todoLD.value = db.tododao().selectAllTodo()
+            todoLD.value = db.tododao().selectNotDoneTodo()
 
         }
     }
@@ -44,7 +44,7 @@ class ListTodoViewModel(application: Application)
         launch {
             val db = buildDb(getApplication())
             db.tododao().taskChecked(id)
-            todoLD.value = db.tododao().selectAllTodo()
+            todoLD.value = db.tododao().selectNotDoneTodo()
         }
     }
 }
